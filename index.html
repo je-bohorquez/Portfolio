@@ -3,330 +3,567 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="estilo.css">
-    <title>JE Business Intelligence</title>
-    <link rel="icon" type="image/x-icon" href="icon/barchart.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juan Eder | JE DATA SOLUTIONS - Business Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- SECCION I N I C I O -->
-    <section id="inicio">
-        <div class="contenido">
-            <header>
-                <div class="contenido-header">
-                    <h1>JE B-Intelligence</h1>
-                    <nav id="nav" class="">
-                        <ul id="links">
-                            <li><a href="#inicio" class="seleccionado" onclick="seleccionar(this)">INICIO</a></li>
-                            <li><a href="#sobremi" onclick="seleccionar(this)">SOBRE MI</a></li>
-                            <li><a href="#servicios" onclick="seleccionar(this)">SERVICIOS</a></li>
-                            <li><a href="#portfolio" onclick="seleccionar(this)">PORTFOLIO</a></li>
-                            <li><a href="#contacto" onclick="seleccionar(this)">CONTACTO</a></li>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-group">
+                    <img src="img/logo.png" alt="JE DATA SOLUTIONS" class="brand-logo">
+                    <div class="brand">
+                        <span class="brand-name">JE DATA SOLUTIONS</span>
+                        <span class="brand-tagline">Business Intelligence</span>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="hamburger"></span>
+                </button>
+
+                <nav class="navigation">
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#inicio" class="nav-link active">INICIO</a></li>
+                        <li><a href="#sobremi" class="nav-link">SOBRE MÍ</a></li>
+                        <li><a href="#competencias" class="nav-link">COMPETENCIAS</a></li>
+                        <li><a href="#portfolio" class="nav-link">PORTAFOLIO</a></li>
+                        <li><a href="#contacto" class="nav-link">CONTACTO</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Inicio Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="professional-badge">
+                        <img src="img/ing.png" alt="Colegio de Ingenieros del Perú" class="badge-logo">
+                        INGENIERO EMPRESARIAL CIP 379204
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="greeting">Hola, soy</span>
+                        <span class="name-highlight">Juan Eder</span>
+                    </h1>
+
+                    <h2 class="hero-subtitle">
+                        Especialista en <span class="accent-text">Business Intelligence</span> & Automatización
+                    </h2>
+
+                    <p class="hero-description">
+                        Transformo procesos operativos en sistemas <strong>data-driven</strong> mediante
+                        Python, SQL y Power BI para optimizar la gestión de activos y capital de trabajo.
+                    </p>
+
+                    <div class="cta-group">
+                        <a href="#portfolio" class="btn btn-primary">
+                            <span>VER PROYECTOS</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contacto" class="btn btn-secondary">
+                            <span>CONTACTAR</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+
+                    <div class="social-proof">
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Errores Eliminados</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Años Experiencia</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Proyectos Completados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="image-container">
+                        <img src="img/inicio.jpg" alt="Juan Eder - Business Intelligence Specialist"
+                            class="profile-image">
+                        <div class="floating-elements">
+                            <div class="floating-card python">
+                                <i class="fab fa-python"></i>
+                                <span>Python</span>
+                            </div>
+                            <div class="floating-card sql">
+                                <i class="fas fa-database"></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="floating-card powerbi">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Power BI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobremi" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SOBRE MÍ</h2>
+                <p class="section-subtitle">Ingeniero Empresarial & Consultor de Business Intelligence</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <img src="img/profile.jpg" alt="Juan Eder - Perfil Profesional">
+                    </div>
+                </div>
+
+                <div class="about-content">
+                    <div class="experience-highlight">
+                        <h3>Transformando Negocios con Datos</h3>
+                        <p>
+                            Profesional <strong>tech-oriented</strong> con 3 años de experiencia en Business
+                            Intelligence y gestión de proyectos. Mi expertise integra la ingeniería de procesos con el
+                            análisis
+                            de datos para desarrollar soluciones <strong>end-to-end</strong> que resuelven problemas
+                            operativos reales.
+                        </p>
+                    </div>
+
+                    <div class="achievement-showcase">
+                        <h4>LOGRO DESTACADO</h4>
+                        <div class="achievement-content">
+                            <p>Lideré la transformación del sistema de Control Patrimonial y Almacenes en EPS Selva
+                                Central:</p>
+                            <ul class="achievement-list">
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    Automaticé procesos manuales desarrollando una aplicación con
+                                    <strong>Python/SQL</strong>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    Eliminé el <strong>100% de errores</strong> de registro mediante estandarización
+                                    (NIC 16/36/2)
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    Implementé dashboards en <strong>Power BI</strong> para toma de decisiones
+                                    <strong>data-driven</strong>
+                                </li>
+                                <li>
+                                    <i class="fas fa-check"></i>
+                                    Establecí la primera fuente única de verdad para análisis de inversiones
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="philosophy">
+                        <p>
+                            Mi enfoque combina metodologías ágiles (BPMN, PMBOK) con herramientas técnicas
+                            (Python, SQL, Power BI) para <strong>optimizar procesos operativos</strong> y generar
+                            <strong>insights accionables</strong> que mejoran la gestión de activos y capital de
+                            trabajo.
+                        </p>
+                    </div>
+
+                    <blockquote class="professional-quote">
+                        "No solo analizo datos; diseño sistemas que transforman operaciones caóticas en procesos
+                        eficientes"
+                    </blockquote>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="forceDownloadCV">
+                            <i class="fas fa-download"></i>
+                            DESCARGAR CV
+                        </button>
+                        <a href="#contacto" class="btn btn-outline">
+                            <i class="fas fa-comments"></i>
+                            CONVERSEMOS
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competencias Section -->
+    <section id="competencias" class="competences">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">COMPETENCIAS CLAVE</h2>
+                <p class="section-subtitle">Tecnologías y metodologías que domino</p>
+            </div>
+
+            <div class="competences-grid">
+                <div class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Análisis del Negocio</h3>
+                    <p>Identificación de áreas de oportunidad para definir objetivos estratégicos y desarrollar
+                        indicadores de gestión.</p>
+                    <div class="tools-list">
+                        <span class="tool-tag">MS Office</span>
+                        <span class="tool-tag">MS Project</span>
+                        <span class="tool-tag">Notion</span>
+                    </div>
+                </div>
+
+                <div class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Modelado de Procesos</h3>
+                    <p>Elaboración del mapa de procesos AS IS / TO BE con aplicación BPM para la mejora o rediseño de
+                        procesos.</p>
+                    <div class="tools-list">
+                        <span class="tool-tag">Bizagi</span>
+                        <span class="tool-tag">BPMN</span>
+                        <span class="tool-tag">Excel VBA</span>
+                    </div>
+                </div>
+
+                <div class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Bases de Datos</h3>
+                    <p>Diseño y administración de bases de datos para el almacenamiento de datos del negocio y consultas
+                        analíticas.</p>
+                    <div class="tools-list">
+                        <span class="tool-tag">SQL Server</span>
+                        <span class="tool-tag">MySQL</span>
+                        <span class="tool-tag">SQLite</span>
+                    </div>
+                </div>
+
+                <div class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análisis de Datos</h3>
+                    <p>Aplicación del procesamiento ETL para extraer, transformar y cargar datos en Datamarts para
+                        análisis.</p>
+                    <div class="tools-list">
+                        <span class="tool-tag">Excel</span>
+                        <span class="tool-tag">Power Query</span>
+                        <span class="tool-tag">Power BI</span>
+                    </div>
+                </div>
+
+                <div class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Visualización de Datos</h3>
+                    <p>Elaboración de reportes de analítica de datos y comunicación de información a stakeholders.</p>
+                    <div class="tools-list">
+                        <span class="tool-tag">Excel</span>
+                        <span class="tool-tag">SQL</span>
+                        <span class="tool-tag">Power BI</span>
+                    </div>
+                </div>
+
+                <div class="competence-card">
+                    <div class="competence-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Gestión de Proyectos</h3>
+                    <p>Elaboración del plan de trabajo acorde a las áreas de conocimiento del PMBOK para la gestión de
+                        proyectos.</p>
+                    <div class="tools-list">
+                        <span class="tool-tag">Notion</span>
+                        <span class="tool-tag">MS Project</span>
+                        <span class="tool-tag">PMBOK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">PORTAFOLIO</h2>
+                <p class="section-subtitle">Proyectos destacados y casos de éxito</p>
+            </div>
+
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">TODOS</button>
+                <button class="filter-btn" data-filter="bi">BUSINESS INTELLIGENCE</button>
+                <button class="filter-btn" data-filter="automation">AUTOMATIZACIÓN</button>
+                <button class="filter-btn" data-filter="process">PROCESOS</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="bi automation">
+                    <div class="portfolio-img">
+                        <img src="img//proyectos/pry1.jpg" alt="Sistema de Control Patrimonial">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <button class="action-btn view-details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="action-btn external-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Sistema de Control Patrimonial</h3>
+                        <p>Transformación completa del sistema de gestión de activos fijos para EPS Selva Central.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">SQL</span>
+                            <span class="portfolio-tag">Power BI</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            Ver detalles
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="process">
+                    <div class="portfolio-img">
+                        <img src="img//proyectos/pry2.jpg" alt="Optimización de Procesos">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <button class="action-btn view-details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="action-btn external-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Optimización de Procesos</h3>
+                        <p>Rediseño de flujos operativos para mejorar eficiencia y reducir tiempos de procesamiento.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">BPMN</span>
+                            <span class="portfolio-tag">Bizagi</span>
+                            <span class="portfolio-tag">Análisis</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            Ver detalles
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="bi">
+                    <div class="portfolio-img">
+                        <img src="img//proyectos/pry3.jpg" alt="Dashboard de Gestión">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-actions">
+                                <button class="action-btn view-details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="action-btn external-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Dashboard de Gestión</h3>
+                        <p>Desarrollo de panel de control ejecutivo para monitoreo de KPIs empresariales.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Power BI</span>
+                            <span class="portfolio-tag">SQL</span>
+                            <span class="portfolio-tag">ETL</span>
+                        </div>
+                        <a href="#" class="portfolio-link">
+                            Ver detalles
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">CONTACTO</h2>
+                <p class="section-subtitle">¿Tienes un proyecto en mente? Hablemos</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-header">
+                        <h3>¡Conversemos!</h3>
+                        <p>¿Tienes un proyecto en mente o necesitas asesoría? No dudes en contactarme.</p>
+                    </div>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>EMAIL</h4>
+                                <p>jebohorquez@hotmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>TELÉFONO</h4>
+                                <p>+51 987 178 382</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>UBICACIÓN</h4>
+                                <p>Perú</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">NOMBRE COMPLETO</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">EMAIL</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">ASUNTO</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">MENSAJE</label>
+                            <textarea id="message" class="form-control" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            ENVIAR MENSAJE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-group">
+                        <img src="img/logo.png" alt="JE DATA SOLUTIONS" class="brand-logo">
+                        <div class="brand">
+                            <span class="brand-name">JE DATA SOLUTIONS</span>
+                            <span class="brand-tagline">Business Intelligence</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Transformando datos en decisiones estratégicas para el crecimiento empresarial.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>NAVEGACIÓN</h4>
+                        <ul>
+                            <li><a href="#inicio">Inicio</a></li>
+                            <li><a href="#sobremi">Sobre Mí</a></li>
+                            <li><a href="#competencias">Competencias</a></li>
+                            <li><a href="#portfolio">Portafolio</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
                         </ul>
-                    </nav>
-
-                    <!-- Icono del menu responsive -->
-                    <div id="icono-nav" onclick="responsiveMenu()">
-                        <i class="fa-solid fa-bars"></i>
                     </div>
 
-                    <div class="redes">
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <div class="footer-column">
+                        <h4>SERVICIOS</h4>
+                        <ul>
+                            <li><a href="#">Business Intelligence</a></li>
+                            <li><a href="#">Automatización</a></li>
+                            <li><a href="#">Análisis de Datos</a></li>
+                            <li><a href="#">Consultoría</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>CONECTA</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </header>
-            <div class="presentacion">
-                <p class="bienvenida">Bienvenido</p>
-                <h2>Hola soy <span>Juan Eder</span>, Ingeniero Empresarial</h2>
-                <h2>Especialista en Business Intelligence</h2>
-                <p class="descripcion">Cuentame, ¿cómo puedo ayudarte?</p>
-                <a href="#portfolio">Ir a Portafolio</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCION S O B R E M I -->
-    <section id="sobremi">
-        <div class="contenedor-foto">
-            <img src="img/profile.jpg" alt="">
-        </div>
-        <div class="sobremi">
-            <p class="titulo-seccion">Sobre Mi</p>
-            <h2>Hola, Soy <span>Juan Eder</span> </h2>
-            <h3>Business Intelligence | Business Analytics | Data Anlytics</h3>
-            <p>Analista con 3 años de experiencia en Inteligencia de Negocios y otros 3 años en Monitoreo de Proyectos.
-                Formado en Ingeniería Empresarial. Mi experiencia y habilidades en la inteligencia empresarial se
-                centra, en el diseño de bases de datos, el análisis y la visualización de datos, el modelamiento de
-                procesos, el diseño de indicadores, así como la gestión y el seguimiento de proyectos. Me caracteriza mi
-                enfoque por poner al cliente en el centro, buscar resultados y fomentar la mejora continua.</p>
-            <p>¡Permíteme impulsar el éxito de tu empresa! Con mi experiencia en inteligencia de negocios y monitoreo de
-                proyectos, puedo proporcionarte valiosos insights y análisis para respaldar tus decisiones estratégicas.
-                Utilizando mis habilidades podré desbloquear el potencial oculto en tu información empresarial.</p>
-            <h3>"Transformando datos en brillantes decisiones"</h3>
-            <a href="pdf/cv-juaneder-23.pdf" download="cv-juaneder-23.pdf">Descargar CV</a>
-        </div>
-    </section>
-
-    <!-- SECCION S E R V I C I O S -->
-    <section id="servicios">
-        <h3 class="titulo-seccion">MIS SERVICIOS</h3>
-        <div class="fila">
-            <div class="servicio">
-                <span class="icono"> <i class="fa-solid fa-lg fa-chalkboard-user"></i></i></span>
-                <h4>Análisis del negocio</h4>
-                <hr>
-                <ul class="servicios-tag">
-                    <li>MS Office</li>
-                    <li>MS Project</li>
-                    <li>Notion</li>
-                </ul>
-                <p>Identificación de las áreas de oportunidad para definir objetivos estratégicos y desarrollar
-                    indicadores de gestión a implementar en el monitoreo de las metas.</p>
-            </div>
-            <div class="servicio">
-                <span class="icono"><i class="fa-solid fa-lg fa-gears"></i></span>
-                <h4>Modelado de procesos</h4>
-                <hr>
-                <ul class="servicios-tag">
-                    <li>Bizagi</li>
-                    <li>BPMN</li>
-                    <li>Excel VBA</li>
-                </ul>
-                <p>Elaboración del mapa de procesos AS IS / TO BE con apliación BPM para la mejora o rediseño de los
-                    procesos con el propósito de convertirlos en eficientes y efectivos.</p>
-            </div>
-            <div class="servicio">
-                <span class="icono"><i class="fa-solid fa-lg fa-database"></i></span>
-                <h4>Bases de datos</h4>
-                <hr>
-                <ul class="servicios-tag">
-                    <li>SQL Server</li>
-                    <li>MySQL</li>
-                    <li>SQLite</li>
-                </ul>
-                <p>Diseño y administración de las bases de datos para el almacenamiento de los datos del negocios y las
-                    consultas posteriores que contribuyan al análisis de las áreas del negocio.</p>
-            </div>
-        </div>
-        <div class="fila">
-            <div class="servicio">
-                <span class="icono"><i class="fa-solid  fa-lg fa-magnifying-glass-chart"></i></span>
-                <h4>Análsis de datos</h4>
-                <hr>
-                <ul class="servicios-tag">
-                    <li>Excel</li>
-                    <li>Power Query</li>
-                    <li>Power BI</li>
-                </ul>
-                <p>Aplicación del procesamiento ETL para extraer, tranformar y cargar los datos en Datamarts y realizar
-                    el analisis de caso.</p>
-            </div>
-            <div class="servicio">
-                <span class="icono"><i class="fa-solid fa-lg fa-chart-simple"></i></span>
-                <h4>Viusalización de datos</h4>
-                <hr>
-                <ul class="servicios-tag">
-                    <li>Excel</li>
-                    <li>SQL</li>
-                    <li>Power BI</li>
-                </ul>
-                <p>Elaboración de reportes de la análitica de los datos y comunicar la información a los stakeholders o
-                    responsables de la toma de decisiones.</p>
-            </div>
-            <div class="servicio">
-                <span class="icono"><i class="fa-solid fa-lg fa-list-check"></i></span>
-                <h4>Gestión de proyectos</h4>
-                <hr>
-                <ul class="servicios-tag">
-                    <li>Notion</li>
-                    <li>MS Project</li>
-                    <li>PMBOK</li>
-                </ul>
-                <p>Elaboración del plan de trabajo acorde a las áreas de conocimiento del PMBOK para la gestión y
-                    monitorización de las metas del proyecto.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCION H A B I L I D A D E S -->
-    <div class="contenedor-skills" id="skills">
-        <h3>HABILIDADES </h3>
-        <div class="skill">
-            <div class="info">
-                <p> <span class="lista"> </span>Power BI</p>
-                <span class="porcentaje">75%</span>
             </div>
 
-            <div class="barra">
-                <div class="" id="html"></div>
-            </div>
-        </div>
-        <div class="skill">
-            <div class="info">
-                <p> <span class="lista"> </span>SQL Server</p>
-                <span class="porcentaje">75%</span>
-            </div>
-
-            <div class="barra">
-                <div class="" id="js"></div>
-            </div>
-        </div>
-        <div class="skill">
-            <div class="info">
-                <p> <span class="lista"> </span>Bizagi</p>
-                <span class="porcentaje">90%</span>
-            </div>
-
-            <div class="barra">
-                <div class="" id="bd"></div>
-            </div>
-        </div>
-        <div class="skill">
-            <div class="info">
-                <p> <span class="lista"> </span>MS Project</p>
-                <span class="porcentaje">90%</span>
-            </div>
-
-            <div class="barra">
-                <div class="" id="ps"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SECCION PORTAFOLIO -->
-    <section id="portfolio">
-        <h3 class="titulo-seccion">Mis Proyectos</h3>
-        <div class="fila">
-            <div class="proyecto">
-                <div class="overlay">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiOTEwZDllMDUtMDQxNi00MzlmLThjZWYtZjE2NDBiYWZhMjY5IiwidCI6ImM0YTY2YzM0LTJiYjctNDUxZi04YmUxLWIyYzI2YTQzMDE1OCIsImMiOjR9"
-                        target="_blank"><img src="img/reporte1.jpg" alt=""></a>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2026 JE DATA SOLUTIONS. Todos los derechos reservados.</p>
                 </div>
-                <div class="info">
-                    <h4>Repote 01</h4>
-                    <p>Venta de mobiliario</p>
-                </div>
-            </div>
-            <div class="proyecto">
-                <div class="overlay">
-                    <a href="https://app.powerbi.com/view?r=eyJrIjoiZDBkY2Q3NGYtMGJiMC00OGZlLTkzOGItYjRiYzMwODk0Yjk3IiwidCI6ImM0YTY2YzM0LTJiYjctNDUxZi04YmUxLWIyYzI2YTQzMDE1OCIsImMiOjR9"
-                        target="_blank"><img src="img/reporte2.jpg" alt=""></a>
-                </div>
-                <div class="info">
-                    <h4>Reporte 02</h4>
-                    <p>índice mundial de Felicidad</p>
-                </div>
-            </div>
-            <div class="proyecto">
-                <div class="overlay"></div>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiMDdlNTViYTgtMTFkNS00NzdkLTkyMDUtMGUyMmM5NmFjN2RmIiwidCI6ImM0YTY2YzM0LTJiYjctNDUxZi04YmUxLWIyYzI2YTQzMDE1OCIsImMiOjR9"
-                    target="_blank"><img src="img/reporte3.jpg" alt=""></a>
-                <div class="info">
-                    <h4>Reporte 03</h4>
-                    <p>Indicadores financieros Minimarket 2022</p>
+                <div class="footer-credits">
+                    <p>Ingeniero Empresarial CIP 379204</p>
                 </div>
             </div>
         </div>
-        <div class="fila">
-            <div class="proyecto">
-                <div class="overlay"></div>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiMWY0MWIxMWMtNmUzYy00YTY3LTk4YzAtMWUxZGE1YzRlYWE3IiwidCI6ImM0YTY2YzM0LTJiYjctNDUxZi04YmUxLWIyYzI2YTQzMDE1OCIsImMiOjR9"
-                    target="_blank"><img src="img/reporte4.jpg" alt=""></a>
-                <div class="info">
-                    <h4>Reporte 04</h4>
-                    <p>Análisis Fuerza de Venta 2022</p>
-                </div>
-            </div>
-            <div class="proyecto">
-                <div class="overlay"></div>
-                <a href="https://app.powerbi.com/view?r=eyJrIjoiZGUzNzQ4MjAtOWUzYy00YTNkLTlkMjktNmU3M2UxY2VhMGU2IiwidCI6ImM0YTY2YzM0LTJiYjctNDUxZi04YmUxLWIyYzI2YTQzMDE1OCIsImMiOjR9"
-                    target="_blank"><img src="img/reporte5.jpg" alt=""></a>
-                <div class="info">
-                    <h4>Reporte 05</h4>
-                    <p>Análisis de averías OSIPTEL</p>
-                </div>
-            </div>
-            <div class="proyecto">
-                <div class="overlay"></div>
-                <a < href="https://app.powerbi.com/view?r=eyJrIjoiMDE0ZWQ2MDAtMWVlNS00ZTQ1LWEyNDEtZTM5NGQxMGEzMTBjIiwidCI6ImM0YTY2YzM0LTJiYjctNDUxZi04YmUxLWIyYzI2YTQzMDE1OCIsImMiOjR9"
-                    target="_blank"><img src="img/reporte6.jpg" alt=""></a>
-                <div class="info">
-                    <h4>Reporte 06</h4>
-                    <p>Indice del desempleo e inflación mundial</p>
-                </div>
-            </div>
-        </div>
-        <div class="fila">
-            <div class="proyecto">
-                <div class="overlay"></div>
-                <a < href="https://colab.research.google.com/drive/1hH3enxGF4bewPQWvoT_zvqx5lsKDzoOl?usp=drive_link"
-                    target="_blank"><img src="img/proyecto7.jpg" alt=""></a>
-                <div class="info">
-                    <h4>Proyecto en Python & SQLite</h4>
-                    <p>Análisis básico de datos</p>
-                </div>
-            </div>
-            <div class="proyecto">
-                <div class="overlay"></div>
-                <a < href="https://colab.research.google.com/drive/1UlLNzo773ACtGbLdviJqW1oVzejCffSf#scrollTo=KMP4smXw5rTE"
-                    target="_blank"><img src="img/proyecto8.jpg" alt=""></a>
-                <div class="info">
-                    <h4>Proyecto en SQL Server</h4>
-                    <p>Base de Datos Farmacia"</p>
-                </div>
-            </div>
-            <div class="proyecto">
-                <div class="overlay"></div>
-                <a < href="https://colab.research.google.com/drive/1a2DNUBowM1lJpGBCHgSUuy1l9ROj7zNj?usp=sharing"
-                    target="_blank"><img src="img/proyecto9.png" alt=""></a>
-                <div class="info">
-                    <h4>Proyecto en MySQL</h4>
-                    <p>Base de Datos "Restaurante"</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCTION C O N T A C T O -->
-    <section id="contacto">
-        <h3 class="titulo-seccion">Contactame</h3>
-        <div class="contenedor-form">
-            <form action="https://formsubmit.co/1abd71c5785c5eea7e954b9a16271fee" method="POST">
-                <div class="fila mitad">
-                    <input type="nombre" name="nombre" placeholder="Nombre Completo *" class="input-mitad">
-                    <input type="email" name="email" placeholder="Dirección de Email" class="input-mitad">
-                </div>
-                <div class="fila">
-                    <input type="asunto" name="asunto" placeholder="Asunto..." class="input-full">
-                </div>
-                <div class="fila">
-                    <textarea name="mensaje" id="" cols="30" rows="10" placeholder="Tu Mensaje..."
-                        class="input-full"></textarea>
-                </div>
-                <input type="submit" value="Enviar Mensaje" class="btn-enviar">
-                <input type="hidden" name="_next" value="https://je-bohorquez.github.io/Portfolio">
-            </form>
-        </div>
-    </section>
-
-    <!-- SECCION FOOTER -->
-    <footer>
-        <p>Juan Eder - 2025</p>
-        <div class="redes">
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-        </div>
-
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 
 </html>
