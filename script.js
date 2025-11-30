@@ -13,24 +13,26 @@ class PortfolioApp {
         this.setupScrollEffects();
         this.setupContactForm();
         this.setupAnimations();
+        this.setupForceDownload();
     }
 
     // Mobile Menu Toggle
     setupMobileMenu() {
         const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
+        const navigation = document.getElementById('navigation');
         const navLinks = document.querySelectorAll('.nav-link');
 
-        if (menuToggle && navMenu) {
-            menuToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
+        if (menuToggle && navigation) {
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigation.classList.toggle('active');
                 menuToggle.classList.toggle('active');
             });
 
             // Close menu when clicking on links
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
+                    navigation.classList.remove('active');
                     menuToggle.classList.remove('active');
                 });
             });
@@ -38,9 +40,14 @@ class PortfolioApp {
             // Close menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.navigation') && !e.target.closest('.menu-toggle')) {
-                    navMenu.classList.remove('active');
+                    navigation.classList.remove('active');
                     menuToggle.classList.remove('active');
                 }
+            });
+
+            // Prevent closing when clicking inside menu
+            navigation.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
         }
     }
@@ -198,12 +205,12 @@ class PortfolioApp {
         const errorElement = document.createElement('div');
         errorElement.className = 'error-message';
         errorElement.textContent = message;
-        errorElement.style.color = '#ef4444';
+        errorElement.style.color = '#e63946';
         errorElement.style.fontSize = '0.875rem';
         errorElement.style.marginTop = '0.5rem';
 
         input.parentNode.appendChild(errorElement);
-        input.style.borderColor = '#ef4444';
+        input.style.borderColor = '#e63946';
     }
 
     // Clear Error Message
@@ -248,7 +255,7 @@ class PortfolioApp {
         notification.style.position = 'fixed';
         notification.style.top = '20px';
         notification.style.right = '20px';
-        notification.style.background = type === 'success' ? '#10b981' : '#ef4444';
+        notification.style.background = type === 'success' ? '#2a9d8f' : '#e63946';
         notification.style.color = 'white';
         notification.style.padding = '1rem 1.5rem';
         notification.style.borderRadius = '8px';
@@ -296,42 +303,76 @@ class PortfolioApp {
             observer.observe(el);
         });
     }
+
+    // Force Download CV
+    setupForceDownload() {
+        const downloadBtn = document.getElementById('forceDownloadCV');
+
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', async function (e) {
+                e.preventDefault();
+
+                // Mostrar indicador de carga
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> DESCARGANDO...';
+                this.disabled = true;
+
+                try {
+                    const pdfUrl = 'pdf/cv-juaneder-23.pdf';
+                    const fileName = 'CV_Juan_Eder.pdf';
+
+                    // Usar Fetch API para obtener el archivo como blob
+                    const response = await fetch(pdfUrl);
+
+                    if (!response.ok) {
+                        throw new Error('Archivo no encontrado');
+                    }
+
+                    const blob = await response.blob();
+                    const blobUrl = window.URL.createObjectURL(blob);
+
+                    // Crear enlace de descarga
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = blobUrl;
+                    downloadLink.download = fileName;
+                    downloadLink.style.display = 'none';
+
+                    // Trigger de descarga
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+
+                    // Limpiar
+                    setTimeout(() => {
+                        document.body.removeChild(downloadLink);
+                        window.URL.revokeObjectURL(blobUrl);
+                    }, 100);
+
+                    console.log('Descarga forzada iniciada');
+
+                } catch (error) {
+                    console.error('Error en descarga:', error);
+                    // Fallback: descarga tradicional
+                    const fallbackLink = document.createElement('a');
+                    fallbackLink.href = 'pdf/cv-juaneder-23.pdf';
+                    fallbackLink.download = 'CV_Juan_Eder.pdf';
+                    fallbackLink.style.display = 'none';
+                    document.body.appendChild(fallbackLink);
+                    fallbackLink.click();
+                    document.body.removeChild(fallbackLink);
+                } finally {
+                    // Restaurar botón
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                    }, 2000);
+                }
+            });
+        }
+    }
 }
 
-// CSS for animations (injected via JavaScript)
-const animationStyles = `
-    .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    
-    .animate-on-scroll.animate-in {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .competence-card.animate-on-scroll {
-        transition-delay: calc(var(--delay, 0) * 0.1s);
-    }
-    
-    .portfolio-item.animate-on-scroll {
-        transition-delay: calc(var(--delay, 0) * 0.1s);
-    }
-`;
-
-// Inject animation styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = animationStyles;
-document.head.appendChild(styleSheet);
-
-// Initialize the application when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new PortfolioApp();
-});
-
 // Add delay attributes for staggered animations
-document.addEventListener('DOMContentLoaded', () => {
+function setupStaggeredAnimations() {
     const competenceCards = document.querySelectorAll('.competence-card');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
 
@@ -342,74 +383,10 @@ document.addEventListener('DOMContentLoaded', () => {
     portfolioItems.forEach((item, index) => {
         item.style.setProperty('--delay', index);
     });
-});
-
-
-// Función mejorada para forzar descarga del CV
-function setupForceDownload() {
-    const downloadBtn = document.getElementById('forceDownloadCV');
-
-    if (downloadBtn) {
-        downloadBtn.addEventListener('click', async function (e) {
-            e.preventDefault();
-
-            // Mostrar indicador de carga
-            const originalText = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> DESCARGANDO...';
-            this.disabled = true;
-
-            try {
-                const pdfUrl = 'pdf/cv-juaneder-23.pdf';
-                const fileName = 'CV_Juan_Eder.pdf';
-
-                // Usar Fetch API para obtener el archivo como blob
-                const response = await fetch(pdfUrl);
-
-                if (!response.ok) {
-                    throw new Error('Archivo no encontrado');
-                }
-
-                const blob = await response.blob();
-                const blobUrl = window.URL.createObjectURL(blob);
-
-                // Crear enlace de descarga
-                const downloadLink = document.createElement('a');
-                downloadLink.href = blobUrl;
-                downloadLink.download = fileName;
-                downloadLink.style.display = 'none';
-
-                // Trigger de descarga
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-
-                // Limpiar
-                setTimeout(() => {
-                    document.body.removeChild(downloadLink);
-                    window.URL.revokeObjectURL(blobUrl);
-                }, 100);
-
-                console.log('Descarga forzada iniciada');
-
-            } catch (error) {
-                console.error('Error en descarga:', error);
-                // Fallback: descarga tradicional
-                const fallbackLink = document.createElement('a');
-                fallbackLink.href = 'pdf/cv-juaneder-23.pdf';
-                fallbackLink.download = 'CV_Juan_Eder.pdf';
-                fallbackLink.style.display = 'none';
-                document.body.appendChild(fallbackLink);
-                fallbackLink.click();
-                document.body.removeChild(fallbackLink);
-            } finally {
-                // Restaurar botón
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                    this.disabled = false;
-                }, 2000);
-            }
-        });
-    }
 }
 
-// Inicializar
-document.addEventListener('DOMContentLoaded', setupForceDownload);
+// Initialize the application when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new PortfolioApp();
+    setupStaggeredAnimations();
+});
