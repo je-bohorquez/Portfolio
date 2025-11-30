@@ -690,6 +690,11 @@ p {
     font-size: 1.05rem;
 }
 
+.achievement-list li span {
+    display: inline;
+    white-space: normal;
+}
+
 .achievement-list li i {
     color: var(--accent-teal);
     margin-top: 0.25rem;
@@ -1099,6 +1104,7 @@ textarea.form-control {
 }
 
 .footer-description {
+    text-align: center;
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
 }
