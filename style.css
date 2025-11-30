@@ -1327,3 +1327,17 @@ textarea.form-control {
         padding: 2rem;
     }
 }
+
+/* 📱 En celulares = la imagen nunca supera el contenedor */
+@media (max-width: 768px) {
+    .profile-image {
+        width: 100%;
+    }
+}
+
+/* 📱 Extra pequeño (muy chicos, 480px) */
+@media (max-width: 480px) {
+    .image-container {
+        max-width: 100%;
+    }
+}
