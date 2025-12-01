@@ -816,13 +816,9 @@ p {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    align-items: start;
-    justify-items: start;
-    padding: 1rem 0;
 }
-
 
 .portfolio-item {
     background: var(--white);
@@ -839,20 +835,16 @@ p {
 
 .portfolio-img {
     position: relative;
-    height: auto;
-    max-height: 250px;
+    height: 250px;
     overflow: hidden;
-
 }
 
 .portfolio-img img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
-    background: #f5f5f5;
+    height: 100%;
+    object-fit: cover;
     transition: var(--transition);
 }
-
 
 .portfolio-overlay {
     position: absolute;
