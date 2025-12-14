@@ -4,21 +4,21 @@
 :root {
     /* Royal Blue & Cream Professional Palette */
     --primary-navy: #1448a0;
-    /* Deep Royal Navy (Darkest) */
-    --primary-blue: #0a2450;
-    /* Royal Blue (Primary Strong) */
-    --accent-teal: #eae052;
-    /* Illuminating Yellow (Accent) */
-    --accent-gold: #eae052;
-    /* Illuminating Yellow */
+    /* Bright Navy Blue (New Primary) */
+    --primary-blue: #1448a0;
+    /* Updated to Navy as requested */
+    --accent-teal: #f2c911;
+    /* Updated to match Gold/Yellow preference */
+    --accent-gold: #f2c911;
+    /* Vibrant Gold to pair with Navy */
     --dark-charcoal: #1a1a1a;
     /* Intense Dark Text */
     --medium-gray: #333333;
     /* Medium Dark Text */
-    --light-gray: #eae0cc;
-    /* Elegant Cream Background */
-    --white: #fefffe;
-    /* Crisp Off-White */
+    --light-gray: #f0e6d2;
+    /* Adjusted Mocaccino/Cream (Slightly warmer) */
+    --white: #ffffff;
+    /* Pure White */
 
     /* Efectos - Warmer Shadows */
     --shadow-sm: 0 1px 3px rgba(62, 39, 35, 0.1);
@@ -174,7 +174,8 @@ p {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-navy));
+    background: linear-gradient(135deg, var(--primary-blue), #0d3880);
+    /* Gradient from Primary to slightly darker */
     color: var(--white);
     box-shadow: var(--shadow-md);
 }
@@ -706,7 +707,7 @@ p {
     /* Clean White/Gradient */
     padding: 1.5rem;
     border-radius: var(--border-radius);
-    border-left: 4px solid var(--primary-blue);
+    border-left: 4px solid var(--primary-navy);
     /* Royal Blue Border */
     box-shadow: var(--shadow-md);
 }
@@ -738,7 +739,7 @@ p {
 }
 
 .achievement-list li i {
-    color: var(--accent-teal);
+    color: var(--primary-navy);
     margin-top: 0.25rem;
     flex-shrink: 0;
 }
@@ -749,10 +750,10 @@ p {
     /* Reduced size */
     font-weight: 600;
     /* Bold weight for impact */
-    color: var(--primary-blue);
+    color: var(--primary-navy);
     /* Highlight Color */
     padding: 1rem;
-    border-left: 4px solid var(--accent-gold);
+    border-left: 4px solid var(--primary-navy);
     background: var(--white);
     /* White background */
     border-radius: var(--border-radius);
@@ -1110,8 +1111,6 @@ p {
     color: var(--medium-gray);
 }
 
-
-
 /* Specific override for Contact Section Title */
 /* Specific override for Contact Section Title - DARK THEME */
 #contacto .section-header .section-title,
@@ -1207,24 +1206,27 @@ p {
 .social-link {
     width: 50px;
     height: 50px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--primary-navy);
+    /* Navy Background for visibility */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--white);
+    /* White Icon */
     text-decoration: none;
     font-size: 1.25rem;
-    box-shadow: none;
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid var(--primary-navy);
 }
 
 .social-link:hover {
-    background: var(--accent-teal);
+    background: var(--white);
     color: var(--primary-navy);
     transform: translateY(-2px);
-    border-color: var(--accent-teal);
+    border-color: var(--primary-navy);
+    box-shadow: var(--shadow-md);
 }
 
 .contact-form-container {

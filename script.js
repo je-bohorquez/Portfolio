@@ -350,20 +350,17 @@ class PortfolioApp {
 
     // Handle Form Submission
     handleFormSubmission(form) {
-        const formData = new FormData(form);
         const submitButton = form.querySelector('button[type="submit"]');
         const originalText = submitButton.innerHTML;
 
-        // Simulate form submission
+        // Show loading state
         submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
         submitButton.disabled = true;
 
-        setTimeout(() => {
-            this.showNotification('¡Mensaje enviado! Te contactaré pronto.', 'success');
-            form.reset();
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-        }, 2000);
+        // Allow default submission to proceed (Action: formsubmit.co)
+        // This ensures the email is sent even from local file environments where AJAX is blocked.
+        // The page will redirect to the _next URL after submission.
+        form.submit();
     }
 
     // Show Notification
