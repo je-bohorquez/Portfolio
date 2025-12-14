@@ -14,6 +14,49 @@ class PortfolioApp {
         this.setupContactForm();
         this.setupAnimations();
         this.setupForceDownload();
+        this.setupTypewriterEffect();
+    }
+
+    setupTypewriterEffect() {
+        const elementsToAnimate = [
+            document.querySelector('.philosophy p'),
+            document.querySelector('.professional-quote')
+        ];
+
+        elementsToAnimate.forEach(textElement => {
+            if (!textElement) return;
+
+            const textToType = textElement.innerText;
+            textElement.innerText = ''; // Clear text
+            textElement.classList.add('typing-cursor');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.typeText(textElement, textToType);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(textElement);
+        });
+    }
+
+    typeText(element, text) {
+        let i = 0;
+        const typingSpeed = 30; // ms per char
+
+        function type() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, typingSpeed);
+            } else {
+                element.classList.remove('typing-cursor'); // Remove cursor when done
+            }
+        }
+        type();
     }
 
     // Mobile Menu Toggle
