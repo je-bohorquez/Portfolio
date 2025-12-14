@@ -17,6 +17,19 @@ class PortfolioApp {
         this.setupTypewriterEffect();
         this.setupNumberAnimation();
         this.setupStaggeredReveal();
+        this.checkSubmissionStatus(); // Check if returning from form submission
+    }
+
+    checkSubmissionStatus() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('email_sent') === 'true') {
+            // Show success notification after a short delay to ensure UI is ready
+            setTimeout(() => {
+                this.showNotification('¡Mensaje enviado con éxito! Te contactaré pronto.', 'success');
+                // Clean URL without refresh
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }, 500);
+        }
     }
 
     setupNumberAnimation() {
