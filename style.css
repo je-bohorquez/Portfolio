@@ -1556,3 +1556,28 @@ textarea.form-control {
         max-width: 100%;
     }
 }
+
+/* ==========================================================================
+   12. BI ANIMATIONS
+   ========================================================================== */
+.fade-up-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+
+.fade-up-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure competence cards interact well with hover effects after animation */
+.competence-card.fade-up-element {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
+}
+
+.competence-card.visible:hover {
+    transform: translateY(-10px) scale(1.02);
+}

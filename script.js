@@ -15,6 +15,89 @@ class PortfolioApp {
         this.setupAnimations();
         this.setupForceDownload();
         this.setupTypewriterEffect();
+        this.setupNumberAnimation();
+        this.setupStaggeredReveal();
+    }
+
+    setupNumberAnimation() {
+        const stats = document.querySelectorAll('.stat-number');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const originalText = el.innerText;
+                    // Extract number and suffix
+                    const match = originalText.match(/(\d+)(.*)/);
+
+                    if (match) {
+                        const value = parseInt(match[1]);
+                        const suffix = match[2];
+                        this.animateValue(el, 0, value, 2000, suffix);
+                    }
+
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        stats.forEach(stat => observer.observe(stat));
+    }
+
+    animateValue(obj, start, end, duration, suffix) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            // Ease out quart
+            const easeProgress = 1 - Math.pow(1 - progress, 4);
+
+            obj.innerHTML = Math.floor(easeProgress * (end - start) + start) + suffix;
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    setupStaggeredReveal() {
+        const cards = document.querySelectorAll('.competence-card');
+
+        // Add class initially to hide them
+        cards.forEach(card => card.classList.add('fade-up-element'));
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+                    // Add visible class with a delay based on index if we could track it,
+                    // but simple intersection is often enough. 
+                    // Let's manually trigger staggered if they appear together.
+                    card.classList.add('visible');
+                    observer.unobserve(card);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        // Or better: staggering logic for the whole grid
+        const grid = document.querySelector('.competences-grid');
+        if (grid) {
+            const gridObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 150); // 150ms delay between each card
+                    });
+                    gridObserver.unobserve(grid);
+                }
+            }, { threshold: 0.1 });
+            gridObserver.observe(grid);
+        } else {
+            // Fallback if grid not found
+            cards.forEach(card => observer.observe(card));
+        }
     }
 
     setupTypewriterEffect() {
