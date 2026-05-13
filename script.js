@@ -455,7 +455,7 @@ class PortfolioApp {
 
                 try {
                     const pdfUrl = 'pdf/cv-juaneder-23.pdf';
-                    const fileName = 'CV_Juan_Eder.pdf';
+                    const fileName = 'cv-juaneder-23.pdf';
 
                     // Usar Fetch API para obtener el archivo como blob
                     const response = await fetch(pdfUrl);
